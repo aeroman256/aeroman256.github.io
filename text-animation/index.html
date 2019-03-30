@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Text animation</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        body{
+            background-color: rgb(17, 104, 105);
+        }
+
+        .text-animation{
+            list-style: none;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translateX(-50%) translateY(-50%);
+        }
+        .text-animation li{
+            display: inline-block;
+            margin-right: 5px;
+            font-family: sans-serif;
+            font-weight: 500;
+            font-size: 5em;
+            color: #70e1e2;
+            opacity: 1;
+            transition: all 2.5s ease;
+        }
+        .text-animation li:last-child{
+            margin-right: 0;
+        }
+        .text-animation.hidden{
+            opacity: 0;
+        }
+        .text-animation.hidden li:nth-child(1){transform: translateX(-200px) translateY(-200px)}
+        .text-animation.hidden li:nth-child(2n+1){transform: translateX(20px) translateY(-20px)}
+        .text-animation.hidden li:nth-child(2n){transform: translateX(20px) translateY(100px)}
+    </style>
+</head>
+<body>
+    <ul class="text-animation hidden">
+        <li>I</li>
+        <li>❤️</li>
+        <li>U</li>
+        <br>
+        <li>N</li>
+        <li>A</li>
+        <li>D</li>
+        <li>E</li>
+        <li>Z</li>
+        <li>H</li>
+        <li>D</li>
+        <li>A</li>
+    </ul>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script>
+      $(function() {
+        setTimeout(function() {
+          $('.text-animation').removeClass('hidden')
+        }, 500)
+      })
+    </script>
+</body>
+</html>
