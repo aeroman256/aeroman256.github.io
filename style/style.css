@@ -11,7 +11,16 @@ body {
     background-color: #060c21;
     color: #a1a1a1;
 }
-
+.container {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #060c21;
+    color: #a1a1a1;
+    z-index: -1;
+}
 .list-box {
     position: relative;
     width: 90%;
