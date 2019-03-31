@@ -13,8 +13,8 @@
 <body>
     <header>
         <a href="#" class="logo">Logo</a>
-        <div class="menu-toggle"></div>
-        <nav>
+        <div class="menu-toggle" id="menu-toggle" onclick="toggleButton()"></div>
+        <nav id="navMenu">
             <ul>
                 <li><a href="#" class="active">Home</a></li>
                 <li><a href="#">About</a></li>
@@ -25,14 +25,13 @@
         </nav>
         <div class="clearfix"></div>
     </header>
-    <script src="http://code.jquery.com/jquery-3.3.1.js"></script>
     <script>
-        $(document).ready(function() {
-          $('.menu-toggle').click(function(){
-            $('.menu-toggle').toggleClass('active')
-            $('nav').toggleClass('active')
-          })
-        })
+      function toggleButton() {
+        let menu = document.getElementById('menu-toggle');
+        let nav = document.getElementById('navMenu');
+        menu.classList.toggle('active');
+        nav.classList.toggle('active');
+      }
     </script>
 </body>
 </html>
