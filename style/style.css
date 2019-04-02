@@ -19,7 +19,7 @@ body {
     min-height: 100vh;
     background-color: #060c21;
     color: #a1a1a1;
-    z-index: -1;
+    z-index: 1;
 }
 .list-box {
     position: relative;
@@ -47,7 +47,7 @@ body {
     bottom: -2px;
     background: #fff;
     transform: skew(2deg, 2deg);
-    z-index: -1;
+    z-index: -2;
 }
 .list-box .box:nth-child(1):before {
      background: linear-gradient(315deg, #ff0057, #e6a419);
