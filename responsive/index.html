@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style/style.css">
     <title>Responsive website</title>
 </head>
-<body>
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" id="navbar">
             <div class="container">
@@ -19,8 +19,8 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-lg-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#home">Home <span class="sr-only">(current)</span></a>
+                        <li class="nav-item">
+                            <a class="nav-link link-home" href="#home">Home <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#explore">Explore</a>
@@ -49,7 +49,7 @@
             </div>
         </div>
     </div>
-    <section class="sec-one">
+    <section class="sec-one" id="explore">
         <div class="container">
             <div class="row">
                 <div class="offset-sm-2 col-sm-8">
@@ -78,14 +78,6 @@
                 </div>
                 <div class="col-sm-4">
                     <div class="placeBox">
-                        <div class="imgBox"><img src="img/img_3.jpg" alt="" class="img-fluid"></div>
-                        <div class="content">
-                            <h3>Place Name <br><span>Country name</span></h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="placeBox">
                         <div class="imgBox"><img src="img/img_4.jpg" alt="" class="img-fluid"></div>
                         <div class="content">
                             <h3>Place Name <br><span>Country name</span></h3>
@@ -95,7 +87,7 @@
             </div>
         </div>
     </section>
-    <section class="sec-two" id="advenrure">
+    <section class="sec-two" id="adventure">
         <div class="container h100">
             <div class="contentBox h100">
                 <div>
@@ -110,9 +102,11 @@
         <div class="container">
             <div class="row">
                 <div class="offset-sm-2 col-sm-8">
-                    <div class="headerText">
+                    <div class="headerText text-center">
                         <h2>Our latest post</h2>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam aspernatur atque culpa deserunt dolorum inventore iusto maxime minus mollitia obcaecati odit possimus reiciendis sequi, sunt voluptate? Quas quidem sapiente tenetur?</p>
+                        <a href="" class="btn btnD2">Read more</a>
+                        <div class="clearfix"></div>
                     </div>
                 </div>
             </div>
@@ -125,6 +119,8 @@
                         <div class="content">
                             <h1>Lorem ipsum dolor sit amet</h1>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi cumque earum incidunt laborum quisquam reprehenderit ut. Architecto asperiores quibusdam voluptate. Culpa cumque facere in inventore molestiae porro qui quo sapiente?</p>
+                            <a href="" class="btn btnD2">Read more</a>
+                            <div class="clearfix"></div>
                         </div>
                     </div>
                 </div>
@@ -136,6 +132,8 @@
                         <div class="content">
                             <h1>Lorem ipsum dolor sit amet</h1>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi cumque earum incidunt laborum quisquam reprehenderit ut. Architecto asperiores quibusdam voluptate. Culpa cumque facere in inventore molestiae porro qui quo sapiente?</p>
+                            <a href="" class="btn btnD2">Read more</a>
+                            <div class="clearfix"></div>
                         </div>
                     </div>
                 </div>
@@ -147,6 +145,8 @@
                         <div class="content">
                             <h1>Lorem ipsum dolor sit amet</h1>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi cumque earum incidunt laborum quisquam reprehenderit ut. Architecto asperiores quibusdam voluptate. Culpa cumque facere in inventore molestiae porro qui quo sapiente?</p>
+                            <a href="" class="btn btnD2">Read more</a>
+                            <div class="clearfix"></div>
                         </div>
                     </div>
                 </div>
@@ -158,6 +158,7 @@
                         <div class="content">
                             <h1>Lorem ipsum dolor sit amet</h1>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi cumque earum incidunt laborum quisquam reprehenderit ut. Architecto asperiores quibusdam voluptate. Culpa cumque facere in inventore molestiae porro qui quo sapiente?</p>
+                            <a href="" class="btn btnD2">Read more</a>
                         </div>
                     </div>
                 </div>
@@ -191,7 +192,7 @@
                         </div>
                         <div class="form-group">
                             <label for="">Message</label>
-                            <textarea name="" id="" cols="30" rows="10" class="form-control textarea"></textarea>
+                            <textarea name="" id="" class="form-control textarea"></textarea>
                         </div>
                         <div class="form-group">
                             <button class="btn btnD1">Send</button>
