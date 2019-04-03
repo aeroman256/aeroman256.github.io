@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
+* {
+  outline: none !important;
+}
+body{
+  font-family: 'Poppins', sans-serif;
+}
+header {
+  position: relative;
+  z-index: 100;
+}
+p {
+  font-size: 1.15rem;
+}
+.navbar {
+  background: transparent!important;
+}
+.navbar.scrolled {
+  background-color: rgba(0, 0, 0, 0.6)!important;
+  transition: 2s;
+}
+.navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link {
+  background: #fff;
+}
