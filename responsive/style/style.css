@@ -31,7 +31,7 @@ p {
   background: #fff;
 }
 
-.link-home:hover {
+.link-home.active:hover {
   color: #000 !important;
 }
 
@@ -44,6 +44,11 @@ p {
   color: white;
   font-sixe: 2.5rem;
   font-weight: 600;
+}
+
+.navbar-light .navbar-nav .nav-link.active:hover,
+.navbar-light .navbar-nav .nav-link.active:focus {
+  color: #000;
 }
 
 .navbar-light .navbar-brand,
