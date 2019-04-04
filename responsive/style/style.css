@@ -303,4 +303,55 @@ footer .copyright {
   text-align: center;
 }
 
+@media (min-width: 992px) {
+  .navbar-expand-lg .navbar-nav .nav-link {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+@media (max-width: 992px) {
+  .navbar-light .navbar-toggler {
+    background: #fff;
+    border-radius: 0;
+  }
+
+  .banner {
+    min-height: 100vh;
+    padding: 100px 0;
+  }
+
+  .contentBox h1 {
+    font-size: 2rem;
+  }
+
+  .sec-one,
+.blog,
+.contact {
+    padding: 20px 0;
+  }
+
+  .blogpost .imgBx {
+    height: 200px;
+  }
+
+  .contact .form-control {
+    height: 40px;
+    border: 1px solid #fff;
+  }
+
+  .social li {
+    list-style: none;
+    margin: 0 10px;
+  }
+  .social li a {
+    color: #777;
+    font-size: 1.5rem;
+    transition: 0.5s;
+  }
+  .social li .sev-two {
+    height: auto;
+    padding: 40px 0;
+  }
+}
+
 /*# sourceMappingURL=style.css.map */
