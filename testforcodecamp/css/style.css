@@ -1,0 +1,66 @@
+body {
+	margin: 0;
+	padding: 0;
+	background-image: linear-gradient(to right, #EECFBA, #C5DDE8);
+}
+
+.main {
+  display: flex;
+  
+}
+.content {
+ /*  border: 1px solid red; */
+
+
+}
+
+.sessions {
+	width: 120px;
+	padding-top: 0px;
+  	text-align: center;
+  	
+}
+
+.Hall {
+  margin: 0 auto;
+	padding-top: 20px;
+  text-align: center;
+  display: inline-block;
+  vertical-align: center;
+}
+
+.seat {
+  	height: 30px;
+  	width: 30px;
+  	margin: 6px;
+  	background-color: #999999;
+  	display: inline-block;
+  	cursor: pointer;
+  	border-radius: 30%;
+  	font-size: 12px;
+}
+
+.seat-reserve {
+  	opacity: 0.5;
+}
+
+.date-input {
+  font-size: 10px;
+  font-family: 'Open Sans', sans-serif;
+  color: #ffffff;
+  font-style: normal;
+  font-weight: 400;
+  border-color: #1B3754;
+  background-color: #0D2033;
+  border: 1px solid #1b3754;
+  vertical-align: middle;
+  margin: 0;
+}
+
+.top  {
+  height: 50px;
+}
+
+#loadHall {
+  margin-right: 52%;
+}

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Cinema</title>
+	<link rel="stylesheet" href="css/style.css">
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="js/datepicker.min.css" rel="stylesheet" type="text/css">
+	<script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/datepicker.min.js"></script>
+</head>
+<body>
+	<main class="container">
+		<div class="top row"></div>
+		<div class="row">
+			<div class="left col-sm-3"></div>
+			<div class="content center col-sm-6">
+				<input type='text' class="datepicker-here form-control" data-position="right top">
+				<input type="button" id="selectDate" class="btn btn-default" value="Выбрать дату">
+			
+				<select class="sessions form-control"></select>
+				<div class="top row"></div>
+				
+				<input type="button" id="loadHall" class="btn btn-default" value="Показать зал" onclick="loadHall">
+				<input type="button" id="reserve" class="btn btn-success" value="Бронировать" onclick="reserve">
+				
+				<div class='Hall zal'></div>
+				
+					
+			</div>
+			<div class="rigth col-sm-3"></div>
+		</div>
+	</main>
+
+	<script>
+			function getCinemaData () {
+				const cinemaData = JSON.parse(localStorage.getItem('reserve'));
+				if (cinemaData) {
+                  //console.log("load unstandard cinema");
+				  return cinemaData
+				} else {
+				  //console.log("load standard cinema");
+                  return [];
+                }
+				/*const cinemaDataMock = [
+				{
+					date: "22.10.2018",
+					session: [
+				{
+					time: "10:00",
+					hall: [
+					{row: 0, seat: 1}
+					]
+				},
+				{
+					time: "12:00",
+					hall: []
+				},
+				{
+					time: "14:00",
+					hall: []
+				},
+				{
+					time: "16:00",
+					hall: []
+				},
+				{
+					time: "18:00",
+					hall: []
+				},
+				{
+					time: "20:00",
+					hall: []
+				}
+				]
+				},
+				{
+					date: "23.10.2018",
+					session: [
+				{
+					time: "10:00",
+					hall: [
+					{row: 0, seat: 1}
+					]
+				},
+				{
+					time: "12:00",
+					hall: []
+				},
+				{
+					time: "14:00",
+					hall: []
+				},
+				{
+					time: "16:00",
+					hall: []
+				},
+				{
+					time: "18:00",
+					hall: []
+				},
+				{
+					time: "20:00",
+					hall: []
+				}
+				]
+				}
+				];*/
+
+			};
+			var cinema = getCinemaData();
+			//возвращаем из объекта cinema массив session в соответсвии с выбранной датой
+			//если выбранная дата в cinema отсутсвует - возвращаем стандартный массив session
+			function getSession (cinema, selectDate){ /*setDateCinema*/
+              	const session = [
+                {
+                  time: "10:00",
+                  hall: []
+                },
+                {
+                  time: "12:00",
+                  hall: []
+                },
+                {
+                  time: "14:00",
+                  hall: []
+                },
+                {
+                  time: "16:00",
+                  hall: []
+                },
+                {
+                  time: "18:00",
+                  hall: []
+                },
+                {
+                  time: "20:00",
+                  hall: []
+                }
+              ];
+				for(let i = 0; i < cinema.length; i++) {
+					if (cinema[i].date === selectDate){
+						//console.log("Загружен session из localStorage");
+						return cinema[i].session;
+					}
+				}
+				cinema.push({
+					date: selectDate,
+					session: session
+				});
+
+				console.log("Загружен стандартный session")
+				return session
+			};
+
+		$(".datepicker-here").data("datepicker");
+		$('.datepicker-here').datepicker({
+    		minDate: new Date()
+		})
+
+		$('#selectDate').click(function() {
+			var selectDate = $(".datepicker-here").val(); //object
+			selectDate = String(selectDate);
+			console.log("selectDate " + selectDate);
+			let session = getSession(cinema, selectDate);
+			setSessionCinema(session);
+
+			});
+
+		function setSessionCinema (session) {
+			var sessionArea = "";
+				for (let i = 0; i < session.length; i++){
+					sessionArea += '<option value="' + session[i].time +'">' +session[i].time + '</option>';
+				}
+			$(".sessions").html(sessionArea);
+		}
+
+		function getHall (session){
+			const selectSession = $(".sessions option:checked").val();
+			//console.log("selectSession " + selectSession);
+			//console.log("session in getHall " + session[0].time);
+			for (let x = 0; x < session.length; x++) {
+				if(selectSession === session[x].time){
+					var present = session[x];
+					console.log('present.time ' + present.time);
+					console.log('present.hall.length ' + present.hall.length);
+					var Hall = {
+				  	row: [4, 6, 6]
+					};
+					var HallMap = '';
+					for (let i = 0; i < Hall.row.length; i++) {
+					  var rowNumber = i + 1;
+					  var numberOfSeats = Hall.row[i];
+					  var HallRow = '';
+					  for (let j = 0; j < numberOfSeats; j++) {
+				    	var seatReserveClass = "";
+				    	for (var y = 0; y < present.hall.length; y++) {
+				    		console.log('render1');
+				    		if (present.hall[y].row === i && present.hall[y].seat === j) {
+				    			seatReserveClass = " seat-reserve";
+				    		}
+				    	};
+					    var seatNumber = j + 1;
+					    HallRow += '<div class="seat ' + seatReserveClass + '" data-row="' + rowNumber + '" data-seat="' + seatNumber + '">' + seatNumber + '</div>';
+					  };
+					  HallMap += HallRow + '<div class="passageBetween">&nbsp;</div>';
+					};
+					//заполняем в html зал
+					$('.zal').html(HallMap);
+
+					$('.seat').on('click', function(e) {
+				  		$(e.currentTarget).toggleClass('seat-reserve');
+					});
+
+				}
+			}
+		};
+		function setReserveSeat (session) {
+			const selectSession = $(".sessions option:checked").val();
+			const seatReverse = document.getElementsByClassName('seat-reserve');
+			for (let i = 0; i < session.length; i++) {
+				if(selectSession === session[i].time){
+					for (let j = 0; j < seatReverse.length; j++) {
+						session[i].hall[j] = {};
+						session[i].hall[j].row = (seatReverse[j].getAttribute("data-row") - 1);
+						session[i].hall[j].seat =(seatReverse[j].getAttribute("data-seat") - 1);
+					}
+				}
+			}
+
+		};
+		const loadHall = function(){
+			const selectDate = $(".datepicker-here").val(); //object
+			//console.log("selectDate last" + selectDate);
+			const session = getSession(cinema, selectDate);
+			getHall(session);
+		};
+		const reserve = function(){
+			const selectDate = $(".datepicker-here").val(); //object
+          	const session = getSession(cinema, selectDate);
+			setReserveSeat(session);
+          	const cinemaSet = JSON.stringify(cinema);
+		  	localStorage.setItem('reserve', cinemaSet);
+		};
+	</script>
+	<script src="js/bootstrap.min.js"></script>
+</body>
+</html> 
