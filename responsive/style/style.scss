@@ -58,7 +58,7 @@ p {
   margin-bottom: 0;
 }
 .banner:before,
-.sec-two:before,
+.adventure:before,
 .contact:before{
   content:'';
   position: absolute;
@@ -71,7 +71,7 @@ p {
   pointer-events: none;
 }
 .banner:after,
-.sec-two:after,
+.adventure:after,
 .contact:after {
   content:'';
   position: absolute;
@@ -107,7 +107,7 @@ p {
     font-size: 1.2rem;
   }
 }
-.sec-one {
+.explore {
   padding: 100px 0;
   background: #000;
 }
@@ -161,7 +161,7 @@ p {
     }
   }
 }
-.sec-two {
+.adventure {
   position: relative;
   background: url('../img/banner-2.jpg');
   -webkit-background-size: cover;
@@ -306,7 +306,7 @@ footer {
   .contentBox h1{
     font-size: 2rem;
   }
-  .sec-one,
+  .explore,
   .blog,
   .contact{
     padding: 20px 0;
