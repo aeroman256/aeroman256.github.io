@@ -30,6 +30,7 @@ body {
     grid-gap: 30px 40px;
 }
 .list-box .box {
+    margin-top: 40px;
     position: relative;
     height: 400px;
     background-color: #060c21;
@@ -69,7 +70,7 @@ body {
     pointer-events: none;
 }
 .content {
-    position: relative;
+    /*position: relative;*/
     padding: 10px;
 }
 .content h2 {
@@ -83,9 +84,10 @@ body {
     transition: 0.6s;
 }
 .box:hover .content h2 {
-    top: -120px;
+    top: -10px;
 }
 .box .content h3 {
+    position: relative;
     margin: 0 0 10px;
     padding: 0;
     font-size: 24px;
@@ -99,6 +101,13 @@ body {
     color: #fff;
 }
 .box .content a {
+    color: #fff;
+}
+.box .content a:hover,
+.box .content a:active{
+    color: #f9f9f9;
+}
+.box .content .btnView {
     position: relative;
     margin: 20px 0 0;
     padding: 10px 20px;
@@ -111,13 +120,13 @@ body {
     opacity: 0;
     visibility: hidden;
 }
-.box:hover .content a {
+.box:hover .content .btnView {
     transform: translateX(0px);
     opacity: 1;
     visibility: visible;
 }
 
-.box .content a:hover {
+.box .content .btnView:hover {
     color: #000;
     background-color: #FFFFFF;
 }
