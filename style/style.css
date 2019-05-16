@@ -130,3 +130,12 @@ body {
     color: #000;
     background-color: #FFFFFF;
 }
+
+.video-background {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vw;
+
+}
