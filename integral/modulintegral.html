@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        table {
+            border: 1px solid black;
+        }
+        th, td {
+            min-width: 50px;
+        }
+    </style>
+    <title>Вычисление интегралов</title>
+</head>
+<body>
+    <script src='modulintegral.js'></script>
+    <script>
+        document.write('<br><h3>Метод Симпсона шаг 0.1</h3><br>') ;
+        document.write(pr(.1));
+        document.write('<br>Значение    '+s(0.1)+'<br>');
+        document.write('<br><h3>Метод Симпсона шаг 0.2</h3><br>') ;
+        document.write(pr(.2));
+        document.write('<br>Значение    '+s(0.2)+'<br>');
+        document.write('<br><h3>Погрешность Рунге</h3>') ;
+        document.write(Math.abs((s(.1)-s(.2))/15));
+    </script>
+</body>
+</html>
