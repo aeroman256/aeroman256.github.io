@@ -1,5 +1,8 @@
 ﻿f=function(x) {
-		return Math.PI*Math.sin(Math. PI*x);
+		//return Math.PI*Math.sin(Math. PI*x);
+
+		//new function
+		return x * Math.sqrt(2 + x ** 3)
 }
 ls=function(h){
 		var x=0,
@@ -13,9 +16,9 @@ ls=function(h){
 pr=function (h) {
 		var s='<table cellspacing="0" cellpadding="10" rules="all"><tr><th>x</th><th>y</th></tr>', l=ls(h), n=l.length,x=0;
 		for (var i=0;i<n;i++){
-				 s=s+'<tr><td>'+x+'</td><td>'+l[i]+'</td></tr>';
-				 x+=h; // исправил с h/2 на h
-				 x = round(x);
+				s=s+'<tr><td>'+x+'</td><td>'+l[i]+'</td></tr>';
+				x+=h; // исправил с h/2 на h
+				x = round(x);
 		}
 		s=s+'</table>';
 		return s;
